@@ -1,6 +1,8 @@
 import os, sys
+import tensorflow as tf
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # hide TensorFlow warnings
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # hide TensorFlow warnings
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 
 import skimage.io
 import cv2
@@ -23,17 +25,20 @@ image_dir = os.path.join(root_dir, "images")
 input_file = 'pedestrians.mp4'
 output_file = 'pedestrians_detected.mp4'
 
-# Load video
-video = cv2.VideoCapture(os.path.join(image_dir, input_file))
-frame_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
-frame_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))  # approximate frame count
+# Load video stream from camera
+video = cv2.VideoCapture(0)
 
-print("Total frames to render: " + str(frame_count))
+# # Load video
+# video = cv2.VideoCapture(os.path.join(image_dir, input_file))
+# frame_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
+# frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+# frame_count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))  # approximate frame count
+#
+# print("Total frames to render: " + str(frame_count))
 
-# Initialize video writer
-fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-writer = cv2.VideoWriter(os.path.join(image_dir, output_file), fourcc, 30, (frame_width, frame_height), True)
+# # Initialize video writer
+# fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+# writer = cv2.VideoWriter(os.path.join(image_dir, output_file), fourcc, 30, (frame_width, frame_height), True)
 
 # # Load test images
 # images = []
@@ -86,7 +91,7 @@ while True: # loop over frames from the video file stream
 
     cv2.imshow('stream', masked_frame)  # show rendered frame
     cv2.waitKey(1)
-    writer.write(masked_frame)  # write each frame in file
+    # writer.write(masked_frame)  # write each frame in file
 
 video.release()
 cv2.destroyAllWindows()

@@ -1,8 +1,8 @@
 import os, sys
 import tensorflow as tf
 
-#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # hide TensorFlow warnings
-sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # hide TensorFlow warnings
+# sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 
 import skimage.io
 import cv2

@@ -21,6 +21,9 @@ sys.path.append(root_dir)  # To find local version of the library
 # Directory of test images
 image_dir = os.path.join(root_dir, "images")
 
+# Directory of model
+model_dir = os.path.join(root_dir, "mask_rcnn")
+
 # File name
 input_file = 'pedestrians.mp4'
 output_file = 'pedestrians_detected.mp4'
@@ -57,7 +60,7 @@ class MyConfig(Config):
 model = MaskRCNN(mode='inference', model_dir='./log', config=MyConfig())
 
 # Load pre-trained COCO weights
-model.load_weights('mask_rcnn_coco.h5', by_name=True)
+model.load_weights(os.path.join(model_dir, "mask_rcnn_coco.h5"), by_name=True)
 
 # Define COCO class names
 class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',

@@ -6,6 +6,7 @@ import tensorflow as tf
 
 import skimage.io
 import cv2
+import numpy as np
 import matplotlib as plt
 
 from mrcnn.config import Config
@@ -16,7 +17,7 @@ from mask_rcnn.visualize import display_instances
 
 # Directory of the project
 root_dir = os.path.abspath("../")
-sys.path.append(root_dir)  # To find local version of the library
+#sys.path.append(root_dir)  # To find local version of the library
 
 # Directory of test images
 image_dir = os.path.join(root_dir, "images")

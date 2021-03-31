@@ -1,1 +1,5 @@
 tensorflow>=2.0
+keras
+opencv-python
+git+git://github.com/leekunhee/Mask_RCNN@master
+yolov4

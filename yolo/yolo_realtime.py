@@ -6,17 +6,17 @@ sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement
 
 from yolov4.tf import YOLOv4
 
-# Directory of the project
+# Directory of project
 root_dir = os.path.abspath("../")
 #sys.path.append(root_dir)  # To find local version of the library
 
-# Directory of test images
-image_dir = os.path.join(root_dir, "images")
+# Directory of ataset
+dataset_dir = os.path.join(root_dir, "dataset")
 
 # Directory of model
 model_dir = os.path.join(root_dir, "yolo")
 
-# Directory of assets
+# Directory of model assets
 assets_dir = os.path.join(model_dir, "assets")
 
 # Define model
@@ -37,5 +37,5 @@ model.config.parse_names(os.path.join(assets_dir, "coco.names"))
 model.summary(summary_type="yolo")
 model.summary()
 
-# Run detection on webcam stream (press q to stop)
+# Run detection on video stream from camera (press q to stop)
 model.inference(0,is_image=False)

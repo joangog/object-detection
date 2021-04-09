@@ -1,5 +1,6 @@
 tensorflow>=2.0
 keras
 opencv-python
+scikit-image==0.16.2
 git+git://github.com/leekunhee/Mask_RCNN@master
 yolov4

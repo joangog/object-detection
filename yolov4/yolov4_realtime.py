@@ -14,7 +14,7 @@ root_dir = os.path.abspath("../")
 dataset_dir = os.path.join(root_dir, "dataset")
 
 # Directory of model
-model_dir = os.path.join(root_dir, "yolo")
+model_dir = os.path.join(root_dir, "yolov4")
 
 # Directory of model assets
 assets_dir = os.path.join(model_dir, "assets")

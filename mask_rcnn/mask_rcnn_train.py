@@ -1,10 +1,11 @@
 import os
 import tensorflow as tf
 
-sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))
-
 from mrcnn.model import MaskRCNN
 from mask_rcnn.assets.mask_rcnn_config import MaskConfig, MaskDataset
+
+
+sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))  # Detect GPU
 
 # Directory of project
 root_dir = os.path.abspath("../")
@@ -36,5 +37,5 @@ model.load_weights(os.path.join(assets_dir, "mask_rcnn_masks_0010.h5"), by_name=
 # Training
 model.train(dataset_train, dataset_val,
             learning_rate=config.LEARNING_RATE,
-            epochs=10,
+            epochs=100,
             layers='heads')

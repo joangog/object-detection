@@ -1,13 +1,13 @@
 import os
 import tensorflow as tf
-
-sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))
-
 import cv2
 
 from mrcnn.model import MaskRCNN
 from mask_rcnn.assets.visualize import display_instances
 from mask_rcnn.assets.mask_rcnn_config import MaskConfig
+
+
+sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))  # Detect GPU
 
 # Directory of project
 root_dir = os.path.abspath("../")

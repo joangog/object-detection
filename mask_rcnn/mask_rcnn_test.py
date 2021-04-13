@@ -2,14 +2,11 @@ import os
 import time
 import tensorflow as tf
 import numpy as np
-import cv2
-import skimage
 
 from pycocotools.cocoeval import COCOeval
 from pycocotools import mask as maskUtils
 from mrcnn.model import MaskRCNN
-from mask_rcnn.assets.visualize import display_instances
-from mask_rcnn.assets.mask_rcnn_config import MaskConfig, MaskDataset
+from mask_rcnn.src.mask_rcnn_config import MaskConfig, MaskDataset
 
 
 ## Testing Functions ###################################################################################################

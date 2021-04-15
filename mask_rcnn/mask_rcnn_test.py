@@ -1,13 +1,30 @@
 import os
 import time
+import argparse
 import tensorflow as tf
 import numpy as np
+import cv2
 
 from pycocotools.cocoeval import COCOeval
 from pycocotools import mask as maskUtils
 from mrcnn.model import MaskRCNN
-from mask_rcnn.src.mask_rcnn_config import MaskConfig, MaskDataset
+from mask_rcnn.scripts.mask_rcnn_config import MaskConfig, MaskDataset
+from mask_rcnn.scripts.mask_rcnn_visualize import display_instances
 
+
+sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))  # Detect GPU
+
+# Directory of project
+root_dir = os.path.abspath("../")
+
+# Directory of dataset
+dataset_dir = os.path.join(root_dir, "dataset")
+
+# Directory of model
+model_dir = os.path.join(root_dir, "mask_rcnn")
+
+# Directory of model assets
+assets_dir = os.path.join(model_dir, "assets")
 
 ## Testing Functions ###################################################################################################
 
@@ -37,12 +54,15 @@ def build_coco_results(dataset, image_ids, rois, class_ids, scores, masks):
             results.append(result)
     return results
 
-def test_model(model, dataset, annotations, eval_type="bbox"):
+def test_model(model, dataset, annotations, eval_type="bbox", image_ids=None, show=None):
 
-    image_ids = dataset.image_ids
+    if image_ids == None:
+        image_ids = dataset.image_ids
 
     t_prediction = 0
     t_start = time.time()
+
+    class_names = [category['name'] for category in dataset.class_info]
 
     results = []
     for i, image_id in enumerate(image_ids):
@@ -59,7 +79,15 @@ def test_model(model, dataset, annotations, eval_type="bbox"):
         image_results = build_coco_results(dataset, image_ids[i:i + 1],
                                            r["rois"], r["class_ids"],
                                            r["scores"],
-                                           r["masks"].astype(np.uint8))
+                                           r["masks"].astype(np.uint8),)
+        # Render detected image
+        if show:
+            detected_image = display_instances(image, r['rois'], r['masks'], r['class_ids'],
+                                        class_names, r['scores'])
+
+            cv2.imshow('result', detected_image)
+            cv2.waitKey(0)
+
         results.extend(image_results)
 
     # Load results. This modifies results with additional attributes.
@@ -76,27 +104,24 @@ def test_model(model, dataset, annotations, eval_type="bbox"):
         t_prediction, t_prediction / len(image_ids)))
     print("Total time: ", time.time() - t_start)
 
+    return results
+
 ########################################################################################################################
 
-sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))  # Detect GPU
-
-# Directory of project
-root_dir = os.path.abspath("../")
-
-# Directory of dataset
-dataset_dir = os.path.join(root_dir, "dataset")
-
-# Directory of model
-model_dir = os.path.join(root_dir, "mask_rcnn")
-
-# Directory of model assets
-assets_dir = os.path.join(model_dir, "assets")
-
-# File name
-input_file = 'mask1.jpg'
-output_file = 'pedestrians_detected.mp4'
-
-
+# Parse command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('--id',
+                    required=False,
+                    default=None,
+                    nargs='+',
+                    type=int,
+                    help='Image IDs to include in dataset.')
+parser.add_argument('--show',
+                    required=False,
+                    default=False,
+                    action='store_true',
+                    help='Show detected images')
+args = parser.parse_args()
 
 # # Load video
 # video = cv2.VideoCapture(os.path.join(image_dir, input_file))
@@ -125,12 +150,6 @@ model = MaskRCNN(mode='inference', model_dir='./log', config=config)
 model.load_weights(os.path.join(assets_dir, "mask_rcnn_masks_0016.h5"), by_name=True)
 
 # Run testing
-test_model(model, dataset_test, annotations, "bbox")
+results = test_model(model, dataset_test, annotations, "bbox", image_ids=args.id, show=args.show)
 
-# Render masked image
-# masked_frame = display_instances(dataset_train, results[0]['rois'], results[0]['masks'], results[0]['class_ids'],
-#                             class_names, results[0]['scores'])
-
-# cv2.imshow('result', masked_frame)  # Show rendered image
-# cv2.waitKey(0)
-
+print('hi')

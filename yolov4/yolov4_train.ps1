@@ -4,7 +4,7 @@ $PROJECT_PATH = (get-Item $PWD).parent.FullName
 $DARKNET_PATH = $args[0]
 
 cd $PROJECT_PATH
-./yolov4/src/yolov4_gen_data.py
+./yolov4/scripts/yolov4_gen_data.py
 
 cd $DARKNET_PATH
 mkdir -p "masks"

@@ -2,7 +2,7 @@ import os
 import tensorflow as tf
 
 from mrcnn.model import MaskRCNN
-from mask_rcnn.src.mask_rcnn_config import MaskConfig, MaskDataset
+from mask_rcnn.scripts.mask_rcnn_config import MaskConfig, MaskDataset
 
 
 sess = tf.compat.v1.Session(config=tf.compat.v1.ConfigProto(log_device_placement=True))  # Detect GPU

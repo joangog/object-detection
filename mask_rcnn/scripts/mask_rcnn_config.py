@@ -6,6 +6,7 @@ from pycocotools import mask as maskUtils
 from mrcnn.config import Config
 from mrcnn.utils import Dataset
 
+
 class MaskConfig(Config):
     NAME = "masks"
     GPU_COUNT = 1
@@ -20,7 +21,7 @@ class MaskConfig(Config):
     IMAGE_RESIZE_MODE = 'square'
     IMAGE_SHAPE = [256, 256, 3]
 
-    STEPS_PER_EPOCH = 100
+    STEPS_PER_EPOCH = 1000
     LEARNING_RATE = 0.001
     LEARNING_MOMENTUM = 0.9
     WEIGHT_DECAY = 0.0001

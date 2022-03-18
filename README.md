@@ -1,4 +1,14 @@
 # object-detection
-(In progress) Comparison of different object detection algorithms (Yolo, SSD, Mask R-CNN, Faster R-CNN) for real-time detection on a general object dataset and masked faces dataset.
+This project implements the following:
+
+### Evaluation of different object detection algorithms (SSD, YOLO, Faster R-CNN, Mask R-CNN, RetinaNet) for real-time detection on the COCO 2017 dataset.
+<p align="center">
+  <img src="https://github.com/joangog/object-detection/blob/main/README_img/coco17_benchmark.png">
+</p>
+
+### Real-time detection model of the correct use of medical mask on human faces based on YOLOv5 using the PWMFD dataset.
+<p align="center">
+  <img src="https://github.com/joangog/object-detection/blob/main/README_img/mask_demo.gif">
+</p>
 
 Asset files used: <a href=https://github.com/joangog/object-detection-assets>object-detection-assets</a>

@@ -1,7 +1,7 @@
 # object-detection
 This project implements the following:
 
-### Evaluation of different object detection algorithms (SSD, YOLO, Faster R-CNN, Mask R-CNN, RetinaNet) for real-time detection on the COCO 2017 dataset.
+### Evaluation of different object detection algorithms (Faster R-CNN, Mask R-CNN, RetinaNet, SSD, YOLO) for real-time detection on the COCO 2017 dataset.
 <p align="center">
   <img src="https://github.com/joangog/object-detection/blob/main/README_img/coco17_benchmark.png">
 </p>

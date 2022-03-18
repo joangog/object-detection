@@ -1,7 +1,9 @@
 # object-detection
-This project implements the following:
+Object detection project using PyTorch on the [COCO 2017](https://cocodataset.org/#download) dataset and the [PWMFD](https://github.com/ethancvaa/Properly-Wearing-Masked-Detect-Dataset) medical mask dataset.
 
-### Evaluation of different object detection algorithms (Faster R-CNN, Mask R-CNN, RetinaNet, SSD, YOLO) for real-time detection on the COCO 2017 dataset.
+The project implements the two following tasks:
+
+### Evaluation of different object detection models (Faster R-CNN, Mask R-CNN, RetinaNet, SSD, YOLO) for real-time detection on the COCO 2017 dataset.
 <p align="center">
   <img height=500 src="https://github.com/joangog/object-detection/blob/main/README_img/coco17_benchmark.png">
 </p>
@@ -11,4 +13,6 @@ This project implements the following:
   <img src="https://github.com/joangog/object-detection/blob/main/README_img/mask_demo.gif">
 </p>
 
-Asset files used: <a href=https://github.com/joangog/object-detection-assets>object-detection-assets</a>
+Asset files are found at <a href=https://github.com/joangog/object-detection-assets>object-detection-assets</a>.
+
+Model sources are [Torchvision](https://github.com/pytorch/vision), [YOLOv3](https://github.com/ultralytics/yolov3), [YOLOv5](https://github.com/ultralytics/yolov5), and [YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4) repositories.

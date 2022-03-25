@@ -13,6 +13,6 @@ The project implements the two following tasks:
   <img src="https://github.com/joangog/object-detection/blob/main/README_img/mask_demo.gif">
 </p>
 
-Asset files are found at <a href=https://github.com/joangog/object-detection-assets>object-detection-assets</a>.
+Asset files are found at [object-detection-assets](https://github.com/joangog/object-detection-assets)
 
 Model sources are [Torchvision](https://github.com/pytorch/vision), [YOLOv3](https://github.com/ultralytics/yolov3), [YOLOv5](https://github.com/ultralytics/yolov5), and [YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4) repositories.

@@ -10,10 +10,10 @@ The project implements the two following tasks:
 
 ### Real-time detection model of the correct use of medical mask on human faces based on YOLOv5 using the PWMFD dataset.
 <p align="center">
-  <img width=710 src="https://github.com/joangog/object-detection/blob/main/README_img/mask_demo.gif">
+  <img width=580 src="https://github.com/joangog/object-detection/blob/main/README_img/mask_demo.gif">
 </p>
 <p align="center">
-  <img width=500 src="https://github.com/joangog/object-detection/blob/main/README_img/mask_examples.png">
+  <img width=400 src="https://github.com/joangog/object-detection/blob/main/README_img/mask_examples.png">
 </p>
 
 Asset files are found at [object-detection-assets](https://github.com/joangog/object-detection-assets)

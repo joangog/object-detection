@@ -1,7 +1,9 @@
-# object-detection
-Object detection project using PyTorch on the [COCO 2017](https://cocodataset.org/#download) dataset and the [PWMFD](https://github.com/ethancvaa/Properly-Wearing-Masked-Detect-Dataset) medical mask dataset.
+# A Review and Implementation of Object Detection Models and Optimizations for Real-time Medical Mask Detection during the COVID-19 Pandemic
+This project constitutes the code of our published paper "A Review and Implementation of Object Detection Models and Optimizations for Real-time Medical Mask Detection during the COVID-19 Pandemic" which can be found [here](https://ieeexplore.ieee.org/document/9894232) and [here](https://www.ceid.upatras.gr/webpages/koutsomi/pdf/inista2022.pdf). Please read it for a more detailed analysis of our results.
 
-The project implements the two following tasks:
+- The models included in this project are written in PyTorch and evaluated on the [COCO 2017](https://cocodataset.org/#download) dataset and the [PWMFD](https://github.com/ethancvaa/Properly-Wearing-Masked-Detect-Dataset) medical mask dataset.
+
+- The project implements the two following tasks:
 
 ### Evaluation of different object detection models (Faster R-CNN, Mask R-CNN, RetinaNet, SSD, YOLO) for real-time detection on the COCO 2017 dataset.
 <p align="center">

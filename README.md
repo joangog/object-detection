@@ -1,4 +1,4 @@
-# A Review and Implementation of Object Detection Models and Optimizations for Real-time Medical Mask Detection during the COVID-19 Pandemic
+# Real-time Medical Mask Detection during the COVID-19 Pandemic
 *Note: if you find any problem while running the code, please open a new issue on github. It will be very much appreciated!*
 
 <br>
